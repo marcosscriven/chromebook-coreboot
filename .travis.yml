@@ -1,0 +1,16 @@
+-language: cpp
+sudo: required
+dist: trusty
+before_install:
+- sudo ./provision/setup.sh
+script: ./build/util/travis_build.sh
+after_script: ls -altr out/roms
+deploy:
+  provider: releases
+  api_key:
+    secure: Eq2NGdwqsLQ94bW1Nld7YT7LzD58V4A2orjAHFGBFzMBqpG62UlHXPVpOtHgpQmQLdpy2DQw0xFkw9NFnAzjBE+K8xQl5n9P+2czYTiEOnJoW6SA8Oi/tQb3E2YGSgdnACif241HIFij46/c/wMp+6UWsWRtT8b94N3Dg+7sQ7V5TWkfa1MHUVrsRqWR+aejAngoFF3hClAfkRbJp0wj9q4oh0ZtuMfy2kWV3qTFD19tMmW8XtAFzzH252inmTdP9Qk7km9TWOuHPvlpYpPIlu3KlMQxi+1/eKUD+gtAw009HfkPpOMHYOSQcgnjy+v2RUGAApqizSCGB4K6VZkIvVCPOQ7WCYfxzG7new5YJtEkNQ7u6HCDEkUfOef3wyYix8/+Jhukcr85tRnF6U7ssQetf4LGHp908y0xoyascdLpMjMNeaSOGpmD4SHL3TlH+AObP2/TaqP1zo7+oMzUXHnn9YJvCwtanBhMOUu5P/nvMnW26vm4+ALC9WH+paFwFoz/IdNjdP5lhs542824YOuZoip/RuTT+8E67ZdddS6BVeKO2WduDBd7KIsYdNmIK2zpUB+ua0FptCvJYeYXrAw9lujee2Gzm+Wbv17IFa6+/bgW/Pzsg/0eFCO12iMc3jl6dCw0+5gfd9qS2veH9npdkPgiaUzplTdxZCCznJk=
+  file_glob: true
+  file: out/roms/*.rom
+  skip_cleanup: true
+  on:
+    tags: true

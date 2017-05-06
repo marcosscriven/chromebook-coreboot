@@ -1,0 +1,16 @@
+pi@raspberrypi:~/flashrom $ time sudo ./flashrom -p linux_spi:dev=/dev/spidev0.0 -w swanky-by-spi.bin
+flashrom v0.9.8-r1931 on Linux 4.1.17+ (armv6l)
+flashrom is free software, get the source code at https://flashrom.org
+
+Calibrating delay loop... delay loop is unreliable, trying to continue OK.
+Found Winbond flash chip "W25Q64.W" (8192 kB, SPI) on linux_spi.
+Reading old flash chip contents... done.
+Erasing and writing flash chip... Erase/write done.
+Verifying flash... FAILED at 0x00213500! Expected=0x43, Found=0x5e, failed byte count from 0x00000000-0x007fffff: 0xcfe
+Your flash chip is in an unknown state.
+Please report this on IRC at chat.freenode.net (channel #flashrom) or
+mail flashrom@flashrom.org, thanks!
+
+real	6m11.196s
+user	0m14.510s
+sys	0m4.830s
